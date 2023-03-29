@@ -3,8 +3,6 @@ const path = require("path");
 const app = express();
 const port = 3000;
 
-console.log(path.join(__dirname, "service/"));
-
 app.use(express.static(__dirname + "/service"));
 app.use(express.static(__dirname + "/views"));
 
