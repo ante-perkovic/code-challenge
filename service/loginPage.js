@@ -1,14 +1,8 @@
-alert("KOJI KURAC");
-console.log("KOJI KURAC");
-
-const { response } = require("express");
-
 const form = document.getElementById("login-form");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 
 form.addEventListener("submit", (event) => {
-  console.log("izvodi se");
   event.preventDefault();
   if (!isEmailValid(email.value)) {
     alert("Please enter a valid email address!");
@@ -29,13 +23,11 @@ form.addEventListener("submit", (event) => {
     .then((response) => response.json())
     .then((data) => {
       const token = data.token;
-      console.log("kurčna");
+      console.log("kurčna", token);
       //token logic
       alert("Login successful!");
     })
-    .catch((error) => {
-      alert("Login failed: " + error.message);
-    });
+    .catch((error) => alert(error.message));
 });
 
 function isEmailValid(email) {
