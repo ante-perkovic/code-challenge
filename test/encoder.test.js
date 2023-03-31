@@ -6,7 +6,7 @@ chai.use(chaiHttp);
 const expect = chai.expect;
 
 describe("encode endpoint", function () {
-  it("should redirect to login for unauthorized POST requests", function (done) {
+  it("should return 401 status for unauthorized POST requests", function (done) {
     chai
       .request("localhost:3000")
       .post("/encode")
@@ -15,11 +15,11 @@ describe("encode endpoint", function () {
       .redirects(0)
       .end(function (err, res) {
         expect(err).to.be.null;
-        expect(res).to.have.status(302);
+        expect(res).to.have.status(401);
         done();
       });
   });
-  it("should redirect to login for unauthorized GET requests", function (done) {
+  it("should allow unauthorized GET request", function (done) {
     chai
       .request("localhost:3000")
       .get("/encode")
@@ -27,7 +27,7 @@ describe("encode endpoint", function () {
       .redirects(0)
       .end(function (err, res) {
         expect(err).to.be.null;
-        expect(res).to.have.status(302);
+        expect(res).to.have.status(200);
         done();
       });
   });
