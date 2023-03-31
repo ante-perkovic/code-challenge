@@ -25,7 +25,7 @@ form.addEventListener("submit", (event) => {
       const token = data.token;
       localStorage.setItem("token", token);
       alert("Login successful!");
-      window.location.replace = "/";
+      window.location.href = "/";
     })
     .catch((error) => alert("Login failed!" + error));
 });

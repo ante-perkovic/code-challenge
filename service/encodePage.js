@@ -20,7 +20,11 @@ form
       headers: authHeaders,
     })
       .then((response) => {
-        return response.json();
+        if (response.status === 401) {
+          window.location.href = "/login";
+        } else {
+          return response.json();
+        }
       })
       .then((data) => {
         encodedDiv.textContent = data.text;
