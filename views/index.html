@@ -5,5 +5,32 @@
   </head>
   <body>
     <h1>Hello Digihey</h1>
+    <button id="login-btn" type="button">Login page</button>
+    <button id="encode-btn" type="button">Encode page</button>
+    <script type="text/javascript">
+      const loginBtn = document.getElementById("login-btn");
+      const encodeBtn = document.getElementById("encode-btn");
+      const token = localStorage.getItem("token");
+
+      const authHeaders = {
+        "Content-Type": "application/json",
+        Authorization: `${token}`,
+      };
+
+      loginBtn.addEventListener("click", () => {
+        fetch("/login")
+          .then((window.location.href = "/login"))
+          .catch((err) => console.error(err));
+      });
+
+      encodeBtn.addEventListener("click", () => {
+        fetch("/encode", {
+          method: "GET",
+          headers: authHeaders,
+        })
+          .then((window.location.href = "/encode"))
+          .catch((err) => console.error(err.status));
+      });
+    </script>
   </body>
 </html>

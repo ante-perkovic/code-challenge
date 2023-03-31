@@ -10,34 +10,20 @@ const authHeaders = {
   Authorization: `${token}`,
 };
 
-fetch("/authorization", {
-  method: "POST",
-  headers: authHeaders,
-})
-  .then((response) => {
-    console.log(token);
-    if (response.status === 401) {
-      window.location.href = "/login";
-    } else {
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
+form
+  .addEventListener("submit", (event) => {
+    event.preventDefault();
 
-        fetch("/encode", {
-          method: "POST",
-          body: JSON.stringify({ text: text.value }),
-          headers: authHeaders,
-        })
-          .then((response) => {
-            if (response.status === 401) {
-              window.location.href = "/login";
-            } else {
-              return response.json();
-            }
-          })
-          .then((data) => {
-            encodedDiv.textContent = data.text;
-          });
+    fetch("/encode", {
+      method: "POST",
+      body: JSON.stringify({ text: text.value }),
+      headers: authHeaders,
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        encodedDiv.textContent = data.text;
       });
-    }
   })
   .catch((error) => console.error(error));
