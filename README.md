@@ -6,6 +6,7 @@ Small code-challenge written in Javascript using a few simple libraries.
 
 - `npm install`
 - `npm start`
+
   To run tests navigate to the test folder and run `mocha encoder.test.js`
 
 ## How to use
