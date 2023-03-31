@@ -25,9 +25,9 @@ form.addEventListener("submit", (event) => {
       const token = data.token;
       localStorage.setItem("token", token);
       alert("Login successful!");
-      window.location.href = "/";
+      window.location.replace = "/";
     })
-    .catch((error) => alert(error.message));
+    .catch((error) => alert("Login failed!" + error));
 });
 
 function isEmailValid(email) {

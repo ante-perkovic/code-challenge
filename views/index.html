@@ -14,7 +14,7 @@
 
       const authHeaders = {
         "Content-Type": "application/json",
-        Authorization: `${token}`,
+        authorization: `${token}`,
       };
 
       loginBtn.addEventListener("click", () => {
@@ -25,7 +25,6 @@
 
       encodeBtn.addEventListener("click", () => {
         fetch("/encode", {
-          method: "GET",
           headers: authHeaders,
         })
           .then((window.location.href = "/encode"))

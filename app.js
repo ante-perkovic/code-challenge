@@ -20,7 +20,7 @@ app.get("/login", function (req, res) {
   res.sendFile(path.join(__dirname, "views/login.html"));
 });
 app.post("/login", login);
-app.get("/encode", authorization, function (req, res) {
+app.get("/encode", function (req, res) {
   res.sendFile(path.join(__dirname, "views/encode.html"));
 });
 app.post("/encode", authorization, encoder);

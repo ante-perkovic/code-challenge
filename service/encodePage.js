@@ -7,7 +7,7 @@ const token = localStorage.getItem("token");
 
 const authHeaders = {
   "Content-Type": "application/json",
-  Authorization: `${token}`,
+  authorization: `${token}`,
 };
 
 form
