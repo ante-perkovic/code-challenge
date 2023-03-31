@@ -23,9 +23,9 @@ form.addEventListener("submit", (event) => {
     .then((response) => response.json())
     .then((data) => {
       const token = data.token;
-      console.log("kurčna", token);
-      //token logic
+      localStorage.setItem("token", token);
       alert("Login successful!");
+      window.location.href = "/";
     })
     .catch((error) => alert(error.message));
 });

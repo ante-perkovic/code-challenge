@@ -13,5 +13,5 @@ module.exports = function encoder(req, res) {
       num = 1;
     }
   }
-  return res.status(200).send(code);
+  return res.status(200).send({ text: code });
 };
